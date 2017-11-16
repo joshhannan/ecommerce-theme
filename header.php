@@ -13,8 +13,27 @@
 </head>
 <body <?php body_class(); ?>>
 	<header>
-		Header.
-	</header>
+		<section class="top">
+			<div class="container">
+				Topbar.  Site Name.  Since 1492.
+				<div class="right">
+<?php
+	if ( is_user_logged_in() ) :
+?>
+ 					<a class="account header-icon" href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('My Account','woothemes'); ?>"><span><?php _e('My Account','woothemes'); ?></span></a>
+ <?php
+ 	else :
+?>
+ 					<a class="account header-icon" href="<?php echo get_permalink( get_option('woocommerce_myaccount_page_id') ); ?>" title="<?php _e('Login / Register','woothemes'); ?>"><span><?php _e('Login / Register','woothemes'); ?></span></a>
+<?php
+	endif;
+?>
+				</div><!--/right-->
+			</div><!--/container-->
+		</section><!--/topbar-->
+		<section class="main">
+			<div class="container">
+				<div class="logo"><img width="300" height="150" src="http://placehold.it/600x300" /></div><!--/logo-->
 <?php
 	$args = array(
 		'theme_location' => 'primary-navigation',
@@ -23,3 +42,6 @@
 	);
 	wp_nav_menu( $args );
 ?>
+			</div><!--/container-->
+		</section><!--/main-->
+	</header>

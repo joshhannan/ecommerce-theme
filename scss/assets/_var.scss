@@ -1,0 +1,77 @@
+/* ===========================================================
+   COLORS
+=========================================================== */
+
+/* SOCIAL COLORS */
+
+$c-linkedin: #0073b2;
+$c-google-plus: #f63e28;
+$c-twitter-blue: #2daae1;
+$c-facebook-blue: #3b5998;
+$c-youtube-red: #ff3132;
+$c-instagram: #507ea3;
+$c-vimeo: #1ab7ea;
+$c-pinterest: #C92228;
+$c-addthis: #FE6D4C;
+$c-rss: #FF6600;
+
+/* DEFAULT COLORS */
+
+$c-white: #FFFFFF;
+$c-black: #000000;
+$c-red: #FF0800;
+$c-yellow: #eab31f;
+$c-green: #32CD32;
+$c-dark-gray: #3c3c3c;
+$c-border-gray: #e8e8e8;
+$c-input-border: #dcdcdc;
+
+/* THEME COLORS */
+
+$c-dark-liver: #54494B;
+$c-mummys-tomb: #839788;
+$c-x11-gray: #BDBBB6;
+$c-bittersweet: #FF6F59;
+$c-zomp: #43AA8B;
+$c-theme-gray-1: #e9e6e6;
+$c-theme-gray-2: #6d6d6d;
+$c-theme-gray-3: #f3f3f3;
+$c-theme-dark-gray: #202123;
+$c-border-gray: #949494;
+$c-paypal-button-yellow: #FDB900;
+$c-paypal-button-light-blue: #009cde;
+$c-paypal-button-blue: #003087;
+$c-paypal-button-dark-blue: #012169;
+
+$c-primary: $c-bittersweet;
+$c-primary-dark: darken( $c-bittersweet, 10% );
+$c-secondary: $c-zomp;
+$c-secondary-dark-bg: $c-theme-dark-gray;
+
+/* ===========================================================
+   FONTS
+=========================================================== */
+
+$fa: 'FontAwesome';
+$montserrat: 'Montserrat', 'Arial', sans-serif;
+
+$f-default: 'Arial', sans-serif;
+$f-text: $montserrat;
+$f-text-special: $montserrat;
+$f-heading: $montserrat;
+
+/* ===========================================================
+   SITE DEFINITIONS
+=========================================================== */
+
+$c-text: $c-theme-gray-2;
+$c-text-alt: $c-dark-gray;
+$c-link: $c-primary;
+$c-button-bg: $c-primary;
+$c-button-text: $c-white;
+$c-button-secondary-bg: $c-black;
+
+/* ===========================================================
+   SIZES
+=========================================================== */
+$container-width: 1600px;

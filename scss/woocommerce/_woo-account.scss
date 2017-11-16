@@ -1,0 +1,23 @@
+/*===========================================================================================
+	WOOCOMMERCE - ACCOUNT
+===========================================================================================*/
+.woocommerce-account {
+	.woocommerce-MyAccount-content {
+		float: left;
+		width: 76%;
+		padding: 0 1.7% 0 0;
+	}
+	.side {
+		width: 24%;
+	}
+	.woocommerce-address-fields {
+		.select2-container--default .select2-selection--single {
+			border-radius: 0;
+			border: 1px solid $c-theme-gray-1;
+			font-size: 0.8em;
+		}
+	}
+	.edit-account fieldset {
+		margin: 1em 2px;
+	}
+}

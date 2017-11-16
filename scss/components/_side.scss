@@ -1,0 +1,240 @@
+/*===========================================================================================
+	SIDE
+===========================================================================================*/
+.side {
+	.ip-widget {
+		@include ip_block;
+		text-align: left;
+		margin: 15px 0 0;
+		&:first-child {
+			margin: 0;
+		}
+		.block-title {
+			@include ip_block;
+			background: $c-primary;
+			color: $c-white;
+			border: 1px solid darken( $c-primary, 5% );
+			font: 600 20px/1 $f-text;
+			padding: 15px 20px;
+		}
+		.block-content {
+			@include ip_block;
+			background: $c-white;
+			border-left: 1px solid darken( $c-theme-gray-1, 5% );
+			border-right: 1px solid darken( $c-theme-gray-1, 5% );
+			border-bottom: 1px solid darken( $c-theme-gray-1, 5% );
+			padding: 1em;
+			@include bp( 769px ) {
+				padding: 0;
+			}
+			.product-categories-dropdown-list,
+			.blog-category-dropdown {
+				display: block;
+				@include bp( 769px ) {
+					display: none;
+				}
+			}
+			.category-list,
+			.product-categories-list {
+				margin: 0;
+				display: none;
+				list-style: none outside none;
+				@include bp( 769px ) {
+					display: block;
+				}
+				ul {
+					display: none;
+					margin: 0;
+					list-style: none outside none;
+
+					li a {
+						padding-left: 40px;
+					}
+				}
+			}
+			.category-list li,
+			.product-categories-list li {
+				margin: 0;
+				@include vendorize( transition, all .15s ease );
+				&.current-menu-item,
+				&:hover,
+				&.active {
+					background: $c-secondary;
+					box-shadow: inset 0px 0px 3px 0px darken( $c-theme-gray-1, 25%);
+					a {
+						font-weight: 600;
+						color: $c-white;
+					}
+				}
+				&:first-child {
+					border-top: none;
+				}
+			}
+			.category-list li a,
+			.product-categories-list li a {
+				border-top: 1px solid darken( $c-theme-gray-1, 5% );
+				display: block;
+				color: $c-text;
+				padding: 15px 20px;
+				cursor: pointer;
+				position: relative;
+				text-decoration: none;
+			}
+			.product-categories-list li a .dd-btn {
+				cursor: pointer;
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 45px;
+				height: 52px;
+
+				&:after {
+					border-top: 6px solid transparent;
+					border-bottom: 6px solid transparent;
+					border-left: 6px solid $c-primary-dark;
+					content: "";
+					position: absolute;
+					top: 20px;
+					left: 22px;
+					height: 0;
+					width: 0;
+				}
+			}
+
+			.product-categories-list li.active {
+				ul {
+					display: block;
+				}
+				a .dd-btn:after {
+					border-bottom: none;
+					border-left: 6px solid transparent;
+					border-right: 6px solid transparent;
+					border-top: 6px solid $c-primary-dark;
+					top: 25px;
+					left: 19px;
+				}
+			}
+			p {
+				line-height: 1.5;
+			}
+			blockquote {
+				line-height: 1.5;
+			}
+			.loading {
+				@include ip_block;
+				position: relative;
+				min-height: 200px;
+				&:before {
+					content: '\f110';
+					font: 2em/1 $fa;
+					color: $c-primary;
+					position: absolute;
+					top: 45%;
+					left: 45%;
+					animation: loading 2s linear infinite;
+					@include vendorize( transform, translateX(-50%) translateY(-50%)  );
+				}
+			}
+			.testimonial {
+				opacity: 1;
+				@include vendorize( transition, all .5s ease );
+				&.pre-loader {
+					opacity: 0;
+					@include vendorize( transition, all .5s ease );
+				}
+			}
+		}
+	}
+	.ip-widget.ip-testimonial-widget {
+		.block-content {
+			padding: 20px 15px;
+		}
+		.ip-image {
+			margin: 15px 0;
+			text-align: center;
+			&.test-video img {
+				border: 5px solid $c-primary;
+			}
+			.button {
+				margin: 0;
+				position: relative;
+				padding: 0.7em;
+				width: 100%;
+				font-size: 0.8em;
+				left: auto;
+				top: auto;
+				bottom: auto;
+				max-width: 125px;
+				float: none;
+				@include vendorize( transform, none );
+				&:hover {
+					left: 0;
+					@include vendorize( transform, none );
+				}
+				.loading {
+					width: auto;
+					float: none;
+					display: inline-block;
+					margin: 0 8px 0 4px;
+					position: relative;
+					vertical-align: top;
+					min-height: 0;
+					&:before {
+						content: '\f110';
+						font: 1em/1 $fa;
+						color: $c-white;
+						position: absolute;
+						top: 45%;
+						left: 45%;
+						display: inline-block;
+						animation: loading 2s linear infinite;
+						@include vendorize( transform, translateX(-50%) translateY(-50%)  );
+					}
+					&.hidden {
+						display: none;
+					}
+				}
+			}
+		}
+		.ip-image img {
+			border: 2px solid #b1b1b1;
+		}
+		blockquote {
+			margin: 0;
+			padding: 0;
+			text-align: left;
+			&:before,
+			&:after {
+				display: none;
+			}
+		}
+		.author {
+			display: block;
+			margin: 15px 0 0;
+			color: $c-primary;
+			font-weight: bold;
+			line-height: 1.5;
+		}
+		.button {
+			margin: 25px 0 0;
+			font: bold 1em/1 $f-text;
+			padding: 0.625em;
+			width: 100%;
+			&.no-margin {
+				margin: 0;
+			}
+		}
+	}
+	.ip-custom-link-block {
+		.item {
+			margin: 15px 0 0;
+			&:first-child {
+				margin: 0;
+			}
+		}
+	}
+}
+@element 'aside' and (min-width: 525px) {
+	width: 50%;
+}

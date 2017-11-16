@@ -1,0 +1,45 @@
+/*===========================================================================================
+	WOOCOMMERCE - DEFAULT
+===========================================================================================*/
+.woocommerce {
+	.woocommerce-error {
+		margin: 0 0 2.5em;
+		.button {
+			padding: 0.6em 1.375em;
+		}
+	}
+	.woocommerce-message {
+		@include ip_block;
+		background: #f3f3f3;
+		border-top: 2px solid darken( $c-primary, 10% );
+		font: bold 1em/1.5 $f-heading;
+		color: lighten( $c-primary, 15%);
+		&:before {
+			color: lighten( $c-primary, 15%);
+			top: 50%;
+			@include vendorize( transform, translateY(-50%) );
+		}
+		.button {
+			padding: 0.6em 1.375em;
+			@include bp( 769px, max-width ) {
+				width: 100%;
+				margin: 0 0 1em;
+			}
+		}
+	}
+	.woocommerce-info {
+		@include ip_block;
+		background: #f3f3f3;
+		border-top: 2px solid $c-secondary;
+		font: bold 1em/1.5em $f-heading;
+		color: $c-secondary;
+		&:before {
+			color: $c-secondary;
+			top: 50%;
+			@include vendorize( transform, translateY(-50%) );
+		}
+		.button {
+			padding: 0.6em 1.375em;
+		}
+	}
+}

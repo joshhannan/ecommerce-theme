@@ -1,0 +1,49 @@
+/*===========================================================================================
+	LOADING ASSETS
+===========================================================================================*/
+
+@import "assets/normalize";
+@import "assets/var";
+@import "assets/mixins";
+
+/*===========================================================================================
+	INSERTING CRUCIAL COMPONENTS
+===========================================================================================*/
+
+@import "components/block";
+@import "components/elements";
+@import "components/header";
+@import "components/nav";
+@import "components/ip-banner";
+@import "components/form";
+@import "components/side";
+@import "components/footer";
+
+/*===========================================================================================
+	LOADING PAGE TEMPLATES
+===========================================================================================*/
+
+@import "templates/front-page";
+@import "templates/ip-side-template";
+@import "templates/ip-full-width-template";
+@import "templates/blog";
+@import "templates/blog-single";
+
+/*===========================================================================================
+	WOOCOMMERCE CUSTOMIZATION
+===========================================================================================*/
+
+@import "woocommerce/woo-default";
+@import "woocommerce/woo-grid-view";
+@import "woocommerce/woo-single";
+@import "woocommerce/woo-account";
+@import "woocommerce/woo-cart";
+@import "woocommerce/woo-checkout";
+@import "woocommerce/woo-gallery";
+
+/*===========================================================================================
+	REFERENCING THIRD PARTY VENDORS
+===========================================================================================*/
+
+@import "vendor/owlcarousel";
+@import "vendor/animate";

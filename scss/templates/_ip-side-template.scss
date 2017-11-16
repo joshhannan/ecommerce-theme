@@ -1,0 +1,47 @@
+/*===========================================================================================
+	DEFAULT SIDEBAR TEMPLATE
+===========================================================================================*/
+.page-template-default .ip-side-template .ip-body {
+	.button {
+		margin: 1em auto;
+	}
+}
+.ip-side-template {
+	padding: 2em 0;
+}
+.ip-side-template,
+.post-type-archive-product,
+.archive {
+	.woo-content {
+		padding: 20px 0;
+	}
+	.side {
+		width: 100%;
+		padding: 0 15px 30px;
+		@include bp( 769px ) {
+			width: 25%;
+			padding: 0 0 0 1.7%;
+		}
+		&.right {
+			@include bp( 769px ) {
+				padding: 0 0 0 1.7%;
+			}
+		}
+		&.left {
+			@include bp( 769px ) {
+				padding: 0 1.7% 0 0;
+			}
+		}
+	}
+	.ip-body {
+		width: 100%;
+		padding: 0 15px 30px;
+		@include bp( 769px ) {
+			width: 75%;
+			padding: 0;
+		}
+		.page-title {
+			color: $c-primary;
+		}
+	}
+}

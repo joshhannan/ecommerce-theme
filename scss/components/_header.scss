@@ -1,0 +1,28 @@
+/*===========================================================================================
+	HEADER - STRUCTURE
+===========================================================================================*/
+header {
+	position: relative;
+}
+header section {
+	@include ip_block;
+}
+header section {
+	&.top {
+		background: $c-dark-liver;
+		color: $c-white;
+		padding: 1em;
+		@include bp( $container-width ) {
+			padding: 1em 0;
+		}
+	}
+	&.main {
+		
+	}
+	.logo {
+		width: 20.834%;
+		float: left;
+		max-width: 300px;
+		height: auto;
+	}
+}

@@ -1,0 +1,190 @@
+@mixin ip_block {
+	width: 100%;
+	float: left;
+}
+@mixin triangle($direction: up, $size: 5px, $color: #000000) {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 0;
+	display: block;
+
+	@if $direction == up {
+		border-right: $size solid transparent;
+		border-left: $size solid transparent;
+		border-bottom: $size solid $color;
+		border-top: none;
+	}
+
+	@if $direction == down {
+		border-right: $size solid transparent;
+		border-left: $size solid transparent;
+		border-top: $size solid $color;
+		border-bottom: none;
+	}
+
+	@if $direction == right {
+		border-top: $size solid transparent;
+		border-bottom: $size solid transparent;
+		border-left: $size solid $color;
+		border-right: none;
+	}
+
+	@if $direction == left {
+		border-top: $size solid transparent;
+		border-bottom: $size solid transparent;
+		border-right: $size solid $color;
+		border-left: none;
+	}
+}
+@mixin bp( $bp, $min-max: min-width ) {
+	@media( #{$min-max}: #{$bp} ) {@content; }
+}
+@mixin btwn-bps($min, $max) {
+	@media (min-width: $min) and (max-width: $max) {
+		@content;
+	}
+}
+@mixin font( $font_size, $line_height, $base, $bold: $base, $italic: $base, $bolditalic: $base, $fallback: $f-default ) {
+	font: normal #{$font_size}/#{$line_height} $base, $fallback;
+	strong { font: bold 1em/1 $bold, $fallback; }
+	em { font: italic 1em/1 $italic, $fallback; }
+	strong em, em strong { font: bold italic 1em/1 $bolditalic, $fallback; }
+}
+@mixin placeholder {
+	&::-webkit-input-placeholder { @content; }
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&:-ms-input-placeholder { @content; }
+}
+@mixin resp_image {
+	display: block;
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+@mixin inline_block {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+}
+@mixin valign {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+@mixin vendorize( $property, $value ) {
+	-webkit-#{$property}: $value;
+	-moz-#{$property}: $value;
+	-ms-#{$property}: $value;
+	-o-#{$property}: $value; #{$property}: $value;
+}
+@mixin box-sizing( $box-model ) { 
+	-webkit-box-sizing: $box-model; 
+	-moz-box-sizing: $box-model; 
+	box-sizing: $box-model;
+}
+@mixin hidden {
+	display: block;
+	height: 0;
+	width: 0;
+	margin: 0;
+	padding: 0;
+	opacity: 0;
+	visibility: hidden;
+	overflow: hidden;
+}
+@mixin visible {
+	height: auto;
+	width: auto;
+	opacity: 1;
+	visibility: visible;
+	overflow: auto;
+}
+@mixin horizontal_navigation {
+	width: 100%;
+	float: left;
+	ul {
+		width: 100%;
+		float: left;
+		text-align: center;
+		li {
+			margin: auto;
+			display: block;
+			float: left;
+			width: 100%;
+			@include bp( 769px ) {
+				display: inline-block;
+				float: none;
+				width: auto;
+			}
+			ul {
+				@include hidden;
+				position: absolute;
+				width: auto;
+			}
+			&:hover ul {
+				@include visible;
+			}
+			ul li {
+				display: block;
+			}
+		}
+	}
+}
+
+
+@keyframes loading {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+
+@mixin bounce {
+	animation-play-state: running;
+	-webkit-animation: pulse 1s;
+	animation: pulse 1s;
+}
+@-moz-keyframes spin {
+	from { -moz-transform: rotateY(0deg); }
+	to { -moz-transform: rotateY(360deg); }
+}
+@-webkit-keyframes spin {
+	from { -webkit-transform: rotateY(0deg); }
+	to { -webkit-transform: rotateY(360deg); }
+}
+@keyframes spin {
+	from {transform:rotateY(0deg);}
+	to {transform:rotateY(360deg);}
+}
+@-moz-keyframes icon_spin {
+	from { -moz-transform: translateX(-50%) translateY(-50%) scale( 1.10, 1.10) rotateY(0deg); }
+	to { -moz-transform: translateX(-50%) translateY(-50%) scale( 1.10, 1.10) rotateY(360deg); }
+}
+@-webkit-keyframes icon_spin {
+	from { -webkit-transform: translateX(-50%) translateY(-50%) scale( 1.10, 1.10) rotateY(0deg); }
+	to { -webkit-transform: translateX(-50%) translateY(-50%) scale( 1.10, 1.10) rotateY(360deg); }
+}
+@keyframes icon_spin {
+	from { transform: translateX(-50%) translateY(-50%) scale( 1.10, 1.10) rotateY(0deg); }
+	to { transform: translateX(-50%) translateY(-50%) scale( 1.10, 1.10) rotateY(360deg); }
+}	
+@keyframes DrawLine {
+	to {
+		stroke-dashoffset: 0;
+		stroke: $c-secondary;
+	}
+}
+@keyframes arrow {
+	to {
+		stroke-dashoffset: 0;
+		fill: $c-secondary;
+	}
+}

@@ -1,0 +1,20 @@
+/*===========================================================================================
+	SINGLE BLOG PAGE
+===========================================================================================*/
+.ip-blog-single {
+	.title {
+		font: 700 50px/1 $f-text;
+		color: $c-primary;
+		margin: 0 0 20px;
+	}
+	.topmeta {
+		@include ip_block;
+		padding: 5px 0 20px;
+		.date {
+			float: left;
+		}
+		.category {
+			float: right;
+		}
+	}
+}

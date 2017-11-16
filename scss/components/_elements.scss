@@ -1,0 +1,642 @@
+/*===========================================================================================
+	BASE ELEMENTS
+===========================================================================================*/
+* {
+	@include box-sizing( border-box );
+	-webkit-font-smoothing: antialiased;
+}
+body {
+	font-size: 16px;
+	line-height: 1em;
+	font-family: $f-text;
+	color: $c-text;
+	background: $c-x11-gray;
+}
+.container {
+	width: 100%;
+	max-width: $container-width;
+	margin: 0 auto;
+}
+.ip-content {
+	@include font( 1em, 1.5, $f-text );
+}
+.visible {
+	@include visible;
+}
+.hidden {
+	@include hidden;
+}
+h1,
+.h1,
+.ip-content h1,
+.ip-content .h1 {
+	@include font( 2.2em, 1.25, $f-heading );
+	margin: 0 0 0.4em;
+	font-weight: 700;
+}
+h2,
+.h2,
+.ip-content h2,
+.ip-content .h2 {
+	@include font( 1.8em, 1.25, $f-heading );
+	margin: 0 0 0.4em;
+	font-weight: 700;
+}
+h3,
+.h3,
+.ip-content h3,
+.ip-content .h3 {
+	@include font( 1.5em, 1.25, $f-heading );
+	margin: 0 0 0.8em;
+	font-weight: 700;
+}
+h4,
+.h4,
+.ip-content h4,
+.ip-content .h4 {
+	@include font( 1.4em, 1, $f-heading );
+	margin: 0 0 0.8em;
+	font-weight: 700;
+}
+h5,
+.h5,
+.ip-content h5,
+.ip-content .h5 {
+	@include font( 1.2em, 1.25, $f-heading );
+	margin: 0 0 0.8em;
+}
+h6,
+.h6,
+.ip-content h6,
+.ip-content .h6 {
+	@include font( 1em, 1.25, $f-heading );
+	margin: 0 0 0.8em;
+}
+hr {
+	height: 1px;
+	border: none;
+	background: #c2c2c2;
+	max-width: 300px;
+	margin: 0 auto;
+	box-shadow: 0px 0px 1px #ededed;
+	&.space {
+		margin: 20px 0 30px;
+	}
+	&.center_space {
+		margin: 20px auto 30px;
+	}
+}
+p {
+	@include font( 1em, 1.5em, $f-text );
+	margin: 0 0 0.5em;
+}
+.ip-body p {
+	margin: 0 0 1.8em;
+}
+address {
+	@include font( 1em, 1.25em, $f-text );
+	margin: 0 0 0.5em;
+}
+.ip-body ul {
+	clear: both;
+	list-style: disc outside none;
+	margin: 0 0 1.8em 1.2em;
+	ul {
+		margin: 0.2em 0 0 1.2em;
+	}
+}
+.ip-body ol {
+	margin: 0 0 1.8em 1.2em;
+	ol {
+		margin: 0.2em 0 0 1.2em;
+	}
+}
+ul.menu {
+	margin: 0;
+}
+ol {
+	list-style: decimal outside none;
+	margin: 0 0 0 25px;
+}
+ol li {
+	@include font( 1em, 1.5em, $f-text );
+	margin: 0 0 5px;
+}
+ol li ol {
+	margin: 0 0 0 25px;
+}
+ul {
+	list-style: none outside none;
+	margin: 0 0 0 25px;
+	&.disc {
+		list-style: disc outside none;
+	}
+}
+ul li {
+	@include font( 1em, 1.5, $f-text );
+	position: relative;
+	margin: 0 0 5px;
+	strong {
+		font-weight: bold;
+	}
+	ul  {
+		margin: 0 0 0 25px;
+	}
+}
+blockquote {
+	position: relative;
+	padding: 2em;
+	margin: 2em 0;
+	text-align: center;
+	&:before { content: '\f10d'; display: block; position: absolute; padding: 10px; top: -18px; left: 0; font: 16px/1 $fa; }
+	&:after { content: '\f10e'; display: block; position: absolute; padding: 10px; top: -18px; right: 0; font: 16px/1 $fa; }
+}
+table.ip-table {
+	border-left: 1px solid lighten($c-primary, 5%);
+	border-right: 1px solid lighten($c-primary, 5%);
+	margin: 0 auto 1.5em;
+
+	.table-header td {
+		background: $c-primary;
+		color: #fff;
+		padding: 10px 5px;
+		text-align: center;
+	}
+
+	td {
+		border: 1px solid lighten($c-primary, 5%);
+	}
+}
+table {
+	width: 100%;
+	float: left;
+	tr {
+		border-top: 1px solid $c-theme-gray-1;
+		border-bottom: 1px solid $c-theme-gray-1;
+	}
+	td {
+		border-left: 1px solid $c-theme-gray-1;
+		padding: 5px 10px;
+		&:first-child {
+			border-left: none;
+		}
+	}
+}
+a {
+	color: $c-link;
+	&:hover, &:active {
+		color: $c-text;
+	}
+}
+.text_left { text-align: left; }
+.text_center { text-align: center; }
+.text_right { text-align: right; }
+.left,
+.alignleft {
+	float: left;
+}
+.right,
+.alignright {
+	float: right;
+}
+.icon {
+	font-family: $fa;
+}
+.ip-body .ip-image {
+	@include bp( 879px, max-width ) {
+		width: 100%;
+		clear: both;
+	}
+}
+.ip-image {
+	position: relative;
+	img {
+		@include resp_image;
+	}
+	&.left,
+	&.alignleft {
+		margin: 0 auto 20px;
+		@include bp( 640px ) {
+			margin: 7px 20px 7px 0;
+		}
+	}
+	&.center,
+	&.aligncenter {
+		display: block;
+		margin: 7px auto;
+	}
+	&.right,
+	&.alignright {
+		margin: 0 auto 20px;
+		@include bp( 640px ) {
+			margin: 7px 0 7px 20px;
+		}
+	}
+	.mobile {
+		@include bp( 769px ) {
+			display: none;
+		}
+	}
+	.tablet {
+		display: none;
+		@include btwn-bps( 640px, 769px ) {
+			display: block;
+		}
+	}
+	.desktop {
+		display: none;
+		@include bp( 769px ) {
+			display: block;
+		}
+	}
+	.button {
+		position: absolute;
+		bottom: 15px;
+		left: 50%;
+		@include vendorize( transform, translateX(-50%) );
+	}
+}
+.button,
+.woocommerce a.button,
+.woocommerce input.button,
+.woocommerce .button.single_add_to_cart_button,
+.woocommerce .button.single_add_to_cart_button.alt,
+.woocommerce #review_form #respond .form-submit input {
+	background: $c-button-bg;
+	color: $c-button-text;
+	border: none;
+	text-align: center;
+	border-radius: 0;
+	padding: 1.1445em 1.375em;
+	font: bold 1.365em/1 $f-text;
+	text-transform: uppercase;
+	cursor: pointer;
+	margin: 0;
+	border-bottom: 5px solid $c-primary-dark;
+	@include inline_block;
+	@include box-sizing( border-box );
+	@include vendorize( user-select, none);
+	@include vendorize( transition, all 0.17s ease-in-out);
+	&.small {
+		font-size: 16px;
+	}
+	&:hover {
+		outline: none;
+		color: $c-button-text !important;
+		background: darken( $c-button-bg, 5% ) !important;
+		@include vendorize( transform, scale( 1.025, 1.025) );
+	}
+	&:active {
+		outline: none;
+		border-bottom: 5px solid $c-primary-dark;
+		@include vendorize( transform, translateY(0) );
+	}
+	&:focus {
+		outline: none;
+		border-bottom: none;
+		@include vendorize( transform, translateY(5px) );
+	}
+	&.button-secondary {
+		background: $c-button-secondary-bg;
+		&:hover,
+		&:active {
+			background: darken( $c-button-secondary-bg, 5% );
+		}
+	}
+	&.button-minimal {
+		background: transparent;
+		color: $c-text-alt;
+		&:after {
+			content: '\f0da';
+			margin: 0 0 0 9px;
+			font: 1em/1.5 $fa;
+		}
+		&:hover,
+		&:active {
+			box-shadow: none;
+		}
+	}
+	&.button-two-lines {
+		position: relative;
+		padding: 10px 40px 10px 20px;
+		&:after {
+			position: absolute;
+			top: 50%;
+			right: 10px;
+			@include vendorize( transform, translateY(-50%) );
+			@include bp( 1000px ) {
+				font-size: 24px;
+			}
+		}
+		@include bp( 1000px ) {
+			font-size: 24px;
+			line-height: 1.25;
+		}
+	}
+}
+.ip-video {
+	position: relative;
+	width: 100%;
+	float: left;
+	padding-bottom: 54%;
+	height: 0;
+	border: none;
+	margin: 0 0 1.8em;
+	iframe {
+		position: absolute;
+		border: none;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+}
+.ip-table {
+	width: 100%;
+	float: left;
+	.heading {
+		display: none;
+		@include bp( 769px ) {
+			display: block;
+			border-top: 1px solid #c7c7c7;
+			border-left: 1px solid #c7c7c7;
+			border-right: 1px solid #c7c7c7;
+		}
+	}
+	.row {
+		border-left: 1px solid #c7c7c7;
+		border-right: 1px solid #c7c7c7;
+		border-bottom: 1px solid #c7c7c7;
+		&:first-child {
+			border-top: 1px solid #c7c7c7;
+		}
+	}
+	.cell,
+	.item {
+		font: 1em/1.25 $f-default;
+		border-top: 1px solid #c7c7c7;
+		@include bp( 769px ) {
+			border-top: none;
+			border-left: 1px solid #c7c7c7;
+			padding: 10px 0;
+		}
+		&:first-child {
+			border-top: none;
+			border-left: none;
+			padding: 10px 0;
+		}
+	}
+}
+.select-wrapper {
+	position: relative;
+	background: $c-white;
+	select {
+		position: relative;
+		background: transparent;
+		padding: 9px 32px 9px 8px;
+		@include vendorize( appearance, none );
+		border: 1px solid $c-input-border;
+		border-radius: 0;
+		height: 42px;
+		line-height: 1.2;
+		&::-ms-expand {
+			display: none;
+		}
+	}
+	&:after {
+		content: '\f0d7';
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		font: 16px/43px $fa;
+		color: #4b494a;
+		pointer-events: none;
+		width: 30px;
+		text-align: center;
+		max-height: 43px;
+	}
+}
+/*===========================================================================================
+	SOCIAL MEDIA
+===========================================================================================*/
+.social {
+	a {
+		display: inline-block;
+		margin: 0 0 0 5px;
+		&:first-child {
+			margin: 0;
+		}
+		span {
+			@include hidden;
+		}
+		&:before {
+			content: '';
+			display: block;
+			font: 24px/42px $fa;
+			height: 42px;
+			width: 42px;
+			background: $c-secondary;
+			color: $c-white;
+			text-align: center;
+			transform-origin: center;
+			@include vendorize( transition, all .15s ease );
+			-moz-osx-font-smoothing: grayscale;
+		}
+		&:hover:before {
+			@include vendorize( transform, scale( 1.1, 1.1 ) );
+		}
+		&.facebook,
+		&.addthis_button_facebook {
+			&:before {
+				content: '\f09a';
+				background: $c-secondary;
+			}
+			&:hover:before {
+				background: $c-facebook-blue;
+			}
+		}
+		&.twitter,
+		&.addthis_button_twitter {
+			&:before {
+				content: '\f099';
+				background: $c-secondary;
+			}
+			&:hover:before {
+				background: $c-twitter-blue;
+			}
+		}
+		&.youtube {
+			&:before {
+				content: '\f167';
+				background: $c-secondary;
+			}
+			&:hover:before {
+				background: $c-youtube-red;
+			}
+		}
+		&.google-plus,
+		&.addthis_button_google_plusone_share {
+			&:before {
+				content: '\f0d5';
+				background: $c-secondary;
+			}
+			&:hover:before {
+				background: $c-google-plus;
+			}
+		}
+		&.linkedin,
+		&.addthis_button_linkedin {
+			&:before {
+				content: '\f0e1';
+				background: $c-secondary;
+			}
+			&:hover:before {
+				background: $c-linkedin;
+			}
+		}
+		&.instagram {
+			&:before {
+				content: '\f16d';
+				background: $c-secondary;
+			}
+			&:hover:before {
+				background: $c-instagram;
+			}
+		}
+		&.pinterest {
+			&:before {
+				content: '\f231';
+				background: $c-secondary;
+			}
+			&:hover:before {
+				background: $c-pinterest;
+			}
+		}
+		&.vimeo{
+			&:before {
+				content: '\f27d';
+				background: $c-secondary;
+			}
+			&:hover:before {
+				background: $c-vimeo;
+			}
+		}
+	}
+}
+/*===========================================================================================
+	CUSTOM GALLERY
+===========================================================================================*/
+.ip-gallery {
+	@include ip_block;
+	position: relative;
+	margin: 0 0 1em;
+	clear: both;
+	&.gallery-loading {
+		height: 287px;
+		.hero-slider,
+		.thumbnail-slider {
+			opacity: 0;
+			visibility: hidden;
+			overflow: hidden;
+		}
+	}
+	.loading {
+		position: absolute;
+		background: rgba( #fff, 0.3 );
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 12;
+		border: 1px solid $c-theme-gray-1;
+		&:before {
+			content: '\f110';
+			font: 2em/1 $fa;
+			color: $c-primary;
+			position: absolute;
+			top: 45%;
+			left: 45%;
+			animation: loading 2s linear infinite;
+			@include vendorize( transform, translateX(-50%) translateY(-50%)  );
+		}
+		&.hidden {
+			display: none;
+		}
+	}
+	.hero-slider,
+	.thumbnail-slider {
+		@include vendorize( transition, all .15s ease );
+		&.owl-loaded {
+			opacity: 1;
+			visibility: visible;
+			overflow: visible;
+		}
+	}
+	.image img {
+		@include vendorize( transition, all .15s ease );
+		@include resp_image;
+	}
+	.hero-slider {
+		margin: 0 0 1em;
+		border: 1px solid $c-theme-gray-1;
+	}
+	.caption {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		padding: 0.4em;
+		color: $c-white;
+		font-weight: bold;
+		max-width: 50%;
+		background: rgba( $c-black, 0.4 );
+	}
+	.enlarge {
+		display: block;
+		&:before {
+			content: '\f065';
+			position: absolute;
+			bottom: 5px;
+			right: 5px;
+			font: 1.25em/2.1 $fa;
+			text-align: center;
+			color: $c-primary;
+			background: $c-white;
+			border-radius: 100%;
+			width: 2em;
+			height: 2em;
+			display: block;
+			cursor: pointer;
+		}
+	}
+	.thumbnail-slider {
+		padding: 0 0 2.5em;
+		.image {
+			border: 1px solid $c-theme-gray-1;
+		}
+		.owl-stage-outer {
+			padding: 2px 0;
+		}
+	}
+	.owl-dots {
+		display: block;
+		@include ip_block;
+		text-align: center;
+		padding: 0;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		.owl-dot {
+			display: inline-block;
+			height: 16px;
+			width: 16px;
+			background: $c-primary;
+			margin: 0 4px 10px;
+			border-radius: 8px;
+			&.active {
+				background: $c-secondary;
+			}
+		}
+	}
+}

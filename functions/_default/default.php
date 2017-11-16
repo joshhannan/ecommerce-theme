@@ -27,14 +27,16 @@
 	function ecomm_scripts_styles() {
 		/*
 			Enqueue Scripts
-
 			wp_enqueue_script('script-name', get_template_directory_uri() . '/js/script-name.js', array('jquery'), null, true);
 
 			Enqueue Stylesheet
 			wp_enqueue_style('style-name', get_template_directory_uri() . '/style-name.css', false, null);
 		*/
-
+		wp_enqueue_script('ip-script', get_template_directory_uri() . '/js/theme.min.js', array('jquery'), null, true);
 		wp_enqueue_style( 'font-awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', false, null );
+		wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,500i,600,600i,700,700i,800,800i,900,900i', false, null );
+		wp_enqueue_style('ip-style', get_template_directory_uri() . '/css/global.css', false, null);
+		wp_localize_script( 'ip-script', 'ajax_call', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 	}
 	add_action('wp_enqueue_scripts', 'ecomm_scripts_styles');
 

@@ -1,0 +1,271 @@
+/*===========================================================================================
+	CONTACT FORM
+===========================================================================================*/
+form {
+	@include ip_block;
+	label {
+		color: $c-text;
+		font: bold 0.9em/1 $f-text;
+		margin: 5px 0;
+		display: block;
+	}
+	.gform_fields {
+		margin: 0;
+		list-style: none outside none;
+	}
+	.gform_body,
+	.gform_footer {
+		@include ip_block;
+	}
+	.gform_footer {
+		margin: 20px 0 0;
+	}
+	.gfield_checkbox {
+		margin: 0;
+		list-style: none outside none;
+		li {
+			overflow: auto;
+			input[type="checkbox"] {
+				float: left;
+				margin: 5px 10px 5px 0;
+			}
+			label {
+				float: left;
+			}
+
+			@include bp(640px) {
+				float: left;
+				width: 50%;
+
+				&:nth-child(2n+1) {
+					clear: both;
+				}
+			}
+		}
+	}
+	.ginput_container_address {
+		.ginput_full {
+			@include ip_block;
+		}
+		.ginput_left,
+		.ginput_right {
+			width: 50%;
+			float: left;
+		}
+		.ginput_left {
+			padding: 0 10px 0 0;
+		}
+		.ginput_right {
+			padding: 0 0 0 10px;
+		}
+	}
+	.ginput_container_fileupload {
+		border: 3px dashed;
+		background: #f3f3f3;
+		border-radius: 11px;
+		padding: 1em;
+		text-align: center;
+		@include vendorize( transition, all .15s ease );
+		.button {
+			padding: 1em;
+			font-size: 1em;
+			margin: 0 0 0 1em !important;
+		}
+		&:hover {
+			background: darken( #f3f3f3, 5% );
+		}
+	}
+	.ip-field,
+	 .gfield {
+		width: 100%;
+		float: left;
+		padding: 10px 0 0;
+		position: relative;
+		margin: 0;
+	}
+	.ip-checkbox {
+		@include ip_block;
+		.input-box,
+		.wpcf7-list-item input[type="checkbox"] {
+			float: left;
+			margin: 6px 5px 0 0;
+			padding: 2px 0;
+		}
+		label,
+		.wpcf7-list-item-label {
+			float: left;
+			width: calc( 100% - 25px );
+			line-height: 20px;
+			margin: 2px 0;
+		}
+	}
+	input[type=text],
+	input[type=email],
+	input[type=number],
+	input[type=tel],
+	input[type=password],
+	input[type=search],
+	select,
+	textarea {
+		-webkit-appearance: none;
+		width: 100%;
+		resize: none;
+		border-radius: 0;
+		border: 1px solid $c-theme-gray-1;
+		background: $c-white;
+		padding: 0.5em 0.8em;
+		vertical-align: middle;
+		margin: 0;
+		font: normal 1em/1 $f-text;
+		color: $c-text-alt;
+		height: 42px;
+		@include box-sizing( border-box );
+		&:focus {
+			outline: none;
+		}
+	}
+	textarea {
+		height: auto;
+		resize: none;
+	}
+	.select-wrapper {
+		position: relative;
+		background: $c-white;
+		select {
+			position: relative;
+			background: transparent;
+			padding: 9px 32px 9px 8px;
+			@include vendorize( appearance, none );
+			border: 1px solid $c-input-border;
+			border-radius: 0;
+			height: 42px;
+			line-height: 1.2;
+			&::-ms-expand {
+				display: none;
+			}
+		}
+		&:after {
+			content: '\f0d7';
+			position: absolute;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			font: 16px/43px $fa;
+			color: #4b494a;
+			pointer-events: none;
+			width: 30px;
+			text-align: center;
+			max-height: 43px;
+		}
+	}
+	.ginput_container_name {
+		.name_first,
+		.name_last {
+			width: 50%;
+			float: left;
+		}
+		.name_first {
+			padding: 0 10px 0 0;
+		}
+		.name_last {
+			padding: 0 0 0 10px;
+		}
+	}
+	.gform_button {
+		float: right;
+	}
+}
+/*===========================================================================================
+	GRAVITY FORMS DEFAULT
+===========================================================================================*/
+.validation_error {
+	@include ip_block;
+	background: $c-red;
+	color: $c-white;
+	font-weight: bold;
+	padding: 10px;
+	margin: 0 0 10px;
+}
+.gform_validation_container {
+	@include hidden;
+}
+.gfield_required {
+	color: $c-red;
+}
+.gfield_error {
+	.validation_message {
+		@include ip_block;
+		background: $c-red;
+		color: $c-white;
+		font-style: italic;
+		font-weight: bold;
+		text-align: right;
+		font-size: 0.8em;
+		width: auto;
+		float: right;
+		padding: 0.8em;
+	}
+}
+.gform_ajax_spinner {
+	display: inline-block;
+	padding: 25px;
+	vertical-align: middle;
+}
+.gform_confirmation_message {
+	@include ip_block;
+	padding: 2em 0;
+	text-align: center;
+	font-weight: bold;
+	background: $c-primary;
+	color: $c-white;
+}
+/*===========================================================================================
+	SEARCH FORM
+===========================================================================================*/
+form.product-search-form {
+	border: 1px solid $c-border-gray;
+}
+.product-search {
+	@include ip_block;
+	.product-search-results {
+		top: 100%;
+	}
+}
+.search-form,
+.product-search-form {
+	@include ip_block;
+	position: relative;
+	border: none;
+	.screen-reader-text {
+		display: block;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+	}
+	label {
+		@include ip_block;
+		margin: 0;
+	}
+	input[type="text"].product-search-field,
+	input[type=search] {
+		@include ip_block;
+		text-transform: uppercase;
+		padding: 11px 40px 11px 15px;
+		font: 1em/1.5 $f-text;
+		border: none;
+	}
+	input[type=submit],
+	.product-search-form div:after {
+		content: '\f002';
+		position: absolute;
+		right: 0;
+		top: 0;
+		bottom: 0;
+		width: 40px;
+		text-align: center;
+		background: transparent;
+		border: none;
+		border-left: 1px solid $c-border-gray;
+		font: 1em/44px $fa;
+	}
+}
