@@ -3,19 +3,28 @@
 	DEFAULT CONFIG SETTINGS
 =========================================================== */
 
-add_action( 'banner_place_to_do_stuff', 'first_banner_thingy', 2 );
-add_action( 'banner_place_to_do_stuff', 'second_banner_thingy', 1 );
-add_action( 'banner_place_to_do_stuff', 'third_banner_thingy', 3 );
+function add_categories_section() {
+	/*
+		Category Loop
+	 */
+	$args = array(
+		'taxonomy' => 'product_cat',
+		'hide_empty' => 0
+	);
+	$categories = get_categories( $args );
 
-function first_banner_thingy() {
-	echo 'First';
+	foreach( $categories as $category ) :
+		echo '<h1>' . $category->name . '</h1>';
+		$thumbnail_id = get_woocommerce_term_meta( $category->term_id, 'thumbnail_id', true ); 
+		$image = wp_get_attachment_url( $thumbnail_id );
+		if( $image ) :
+
+			echo $image;
+		else :
+			echo 'placeholder image';
+		endif;
+	endforeach;
+
 }
 
-function second_banner_thingy() {
-	echo 'Second';
-}
-
-function third_banner_thingy() {
-	echo 'Third';
-}
-
+add_action( 'categories', 'add_categories_section' );

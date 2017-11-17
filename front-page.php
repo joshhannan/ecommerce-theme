@@ -8,7 +8,22 @@
 ?>
 	</section><!--/banner-->
 	<section class="categories">
+
 <?php
+	/*
+		Product Loop
+	 */
+	$args = array(
+		'post_type' => 'product',
+		'posts_per_page' => -1
+	);
+	$the_query = new WP_Query( $args );
+	if( $the_query->have_posts() ) :
+		while( $the_query->have_posts() ) : the_post();
+			the_title();
+		endwhile;
+	endif;
+
 	do_action( 'categories' );
 ?>
 	</section><!--/categories-->

@@ -44,7 +44,7 @@
 	IMAGE SIZES
 =========================================================== */
 	
-	add_image_size('slide-image', 2000, 670, false );
+	add_image_size('slide-image', 2000, 670, array( 'center', 'top' ) );
 
 /* ===========================================================
 	NAV MENUS

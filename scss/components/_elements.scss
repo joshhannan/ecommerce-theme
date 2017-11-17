@@ -5,6 +5,9 @@
 	@include box-sizing( border-box );
 	-webkit-font-smoothing: antialiased;
 }
+pre {
+	@include ip_block;
+}
 body {
 	font-size: 16px;
 	line-height: 1em;
