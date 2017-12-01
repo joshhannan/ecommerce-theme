@@ -1,0 +1,82 @@
+/*===========================================================================================
+	HOMEPAGE BANNER
+===========================================================================================*/
+.front-page-banner {
+	@include ip_block;
+	position: relative;
+	overflow: hidden;
+	.slide {
+		@include ip_block;
+		background-repeat: no-repeat;
+		background-size: cover;
+		height: 500px;
+	}
+	.slide .content {
+		padding: 4em 2em;
+	}
+	&:hover .owl-nav {
+		.owl-prev:before {
+			left: 0;
+		}
+		.owl-next:before {
+			right: 0;
+		}
+	}
+	.owl-nav {
+		display: none !important;
+		height: 0 !important;
+		@include bp( 1000px ) {
+			display: block !important;
+		}
+		.owl-prev,
+		.owl-next {
+			font-size: 0;
+			&:before {
+				content: '';
+				position: absolute;
+				z-index: 9999;
+				top: 50%;
+				font: 70px/1 $fa;
+				color: $c-theme-gray-2;
+				@include vendorize( transition, all .25s ease-in-out );
+				@include vendorize( transform, translateY(-50%) );
+			}
+			&:hover:before {
+				color: $c-primary;
+			}
+		}
+		.owl-prev:before {
+			content: '\f053';
+			left: -60px;
+		}
+		.owl-next:before {
+			content: '\f054';
+			right: -60px;
+		}
+	}
+	.owl-dots {
+		display: block;
+		@include ip_block;
+		text-align: center;
+		padding: 0;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 20;
+		@include bp( 1000px ) {
+			display: none !important;
+		}
+		.owl-dot {
+			display: inline-block;
+			height: 16px;
+			width: 16px;
+			background: $c-primary;
+			margin: 0 4px 10px;
+			border-radius: 8px;
+			&.active {
+				background: $c-secondary;
+			}
+		}
+	}
+}

@@ -24,5 +24,8 @@ header section {
 		float: left;
 		max-width: 300px;
 		height: auto;
+		img {
+			@include resp_image;
+		}
 	}
 }

@@ -28,12 +28,13 @@
 <?php
 	endif;
 ?>
+					<a class="checkout" href="<?php echo get_permalink( get_option('woocommerce_checkout_page_id') ); ?>">Checkout</a>
 				</div><!--/right-->
 			</div><!--/container-->
 		</section><!--/topbar-->
 		<section class="main">
 			<div class="container">
-				<div class="logo"><img width="300" height="150" src="http://placehold.it/600x300" /></div><!--/logo-->
+				<a class="logo" href="<?php echo get_bloginfo('url'); ?>"><img style="max-width: 300px;" src="http://placehold.it/600x300" /></a><!--/logo-->
 <?php
 	$args = array(
 		'theme_location' => 'primary-navigation',

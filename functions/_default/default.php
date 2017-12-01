@@ -44,7 +44,7 @@
 	IMAGE SIZES
 =========================================================== */
 	
-	add_image_size('slide-image', 2000, 670, array( 'center', 'top' ) );
+	add_image_size('banner-image', 1200, 500, array( 'center', 'top' ) );
 
 /* ===========================================================
 	NAV MENUS
@@ -54,8 +54,36 @@ function register_my_navigation_menus() {
 	register_nav_menus(
 		array(
 			'primary-navigation' => __( 'Primary Navigation' ),
-			'shop-navigation' => __( 'Shop Navigation' )
+			'shop-navigation' => __( 'Shop Navigation' ),
+			'footer-navigation-1' => __( 'Footer Navigation One' ),
+			'footer-navigation-2' => __( 'Footer Navigation Two' ),
 		)
 	);
 }
 add_action( 'init', 'register_my_navigation_menus' );
+
+/* ===========================================================
+	
+=========================================================== */
+function get_the_default_loop() {
+
+	if( have_posts() ) :
+		while( have_posts() ) : the_post();
+
+?>
+	<article id="<?php echo $post->ID; ?>" class="post">
+		<h3><?php the_title(); ?></h3>
+		<?php the_excerpt(); ?>
+	</article>
+<?php
+		endwhile;
+	else :
+?>
+	<div class="no-posts">
+		<h3>Whoops!  No Posts Found.</h3>
+	</div><!--/no-posts-->
+<?php
+	endif;
+}
+
+add_action( 'the_default_loop', 'get_the_default_loop' );

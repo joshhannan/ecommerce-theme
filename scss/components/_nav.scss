@@ -28,8 +28,10 @@
 	@include bp( 769px ) {
 		display: block;
 		float: right;
-		width: 81%;
-		margin: 15px -6px 0 0;
+		width: 79.167%;
+		margin: 15px 0 0;
+		text-align: right;
+		padding: 1em;
 	}
 	&.open {
 		display: block;
